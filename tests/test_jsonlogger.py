@@ -175,7 +175,7 @@ class TestJsonLogger(unittest.TestCase):
         self.assertEqual(log_json.get("otherdatetimeagain"),
                          "1900-01-01T00:00:00")
 
-    @unittest.mock.patch('time.time', return_value=1500000000.0)
+    @unittest.mock.patch('time.time_ns', return_value=1500000000000000000.0)
     def test_json_default_encoder_with_timestamp(self, time_mock):
         fr = jsonlogger.JsonFormatter(timestamp=True)
         self.log_handler.setFormatter(fr)
